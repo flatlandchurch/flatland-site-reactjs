@@ -1,0 +1,88 @@
+version: 2
+references:
+  defaults: &defaults
+    docker:
+      - image: circleci/node:8
+    working_directory: ~/site
+
+    # Cache keys for node_modules
+    npm_cache_key: &npm_cache_key
+      npm-dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
+    npm_backup_cache_key_1: &npm_backup_cache_key_1
+      npm-dependencies-{{ .Branch }}-
+    npm_backup_cache_key_2: &npm_backup_cache_key_2
+      npm-dependencies-
+
+    # Cache keys for built packages (packages/**/dist)
+    build_cache_key: &build_cache_key
+      # This cache key is based on the current git revision instead of yarn.lock because the npm
+      # package versions local to this project are not stored in yarn.lock.
+      build-dependencies-{{ .Branch }}-{{ .Revision }}
+
+    restore_node_modules: &restore_node_modules
+      restore_cache:
+        keys:
+          - *npm_cache_key
+          - *npm_backup_cache_key_1
+          - *npm_backup_cache_key_2
+
+    restore_built_packages: &restore_built_packages
+      restore_cache:
+        keys:
+          - *build_cache_key
+
+jobs:
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+      - *restore_node_modules
+      - add_ssh_keys
+      - run:
+          command: |
+            export PATH=$PATH:$HOME/$CIRCLE_PROJECT_REPONAME/node_modules/.bin
+      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+      - run: yarn
+      - save_cache:
+          key: *npm_cache_key
+          paths:
+            - node_modules
+      - save_cache:
+          key: *build_cache_key
+          paths:
+            - build
+  deploy:
+    <<: *defaults
+    steps:
+      - checkout
+      - add_ssh_keys
+      - *restore_node_modules
+      - *restore_built_packages
+      - run: yarn build
+      - run: git clone --single-branch git@github.com:flatlandchurch/flatland-site-reactjs-public.git --depth=1
+      - run:
+          command: git checkout -B $CIRCLE_BRANCH && rm -rf build && rm -rf server
+          working_directory: flatland-site-reactjs-public
+      - run: cp -R build/ flatland-site-reactjs-public/
+      - run: cp -R server/ flatland-site-reactjs-public/
+      - run:
+          command: git config user.email "mubatt@wyopub.com" && git config user.name "$CIRCLE_USERNAME" && git config push.default current
+          working_directory: flatland-site-reactjs-public
+      - run:
+          command: git add .
+          working_directory: flatland-site-reactjs-public
+      - run:
+          command: git diff --quiet && git diff --staged --quiet && echo "No changes to commit" || git commit -am "Automatic build from CircleCI"
+          working_directory: flatland-site-reactjs-public
+      - run:
+          command: git push -f
+          working_directory: flatland-site-reactjs-public
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
