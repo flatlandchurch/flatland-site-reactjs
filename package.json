@@ -36,8 +36,10 @@
     "uuid": "^3.3.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start:client": "react-scripts start",
     "start:server": "NODE_ENV=production node server/index.js",
+    "prestart": "yarn build",
+    "start": "NODE_ENV=production node server/index.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
