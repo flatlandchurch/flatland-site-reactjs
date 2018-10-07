@@ -1,0 +1,24 @@
+.messages-card-body {
+    padding: 10px 10px 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.messages-image-card-wrapper {
+    margin: 8px 0;
+    flex-basis: calc(50% - 8px);
+}
+
+.messages-load-more button {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (max-width: 767px) {
+    .messages-card-body {
+        display: block;
+    }
+}

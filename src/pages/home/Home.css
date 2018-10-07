@@ -1,0 +1,157 @@
+.home-jumbo-wrapper {
+    position: relative;
+}
+
+.home-jumbo {
+    width: 100%;
+    overflow: hidden;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-jumbo img {
+    min-height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.home-jumbo-meta {
+    width: 100%;
+    position: absolute;
+    top: 220px;
+}
+
+.home-jumbo-meta h1,
+.home-jumbo-meta p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    color: #fff;
+    text-align: center;
+    margin-top: 0;
+}
+
+.home-secondary-jumbo-meta {
+    position: absolute;
+    margin: 50px;
+    top: 190px;
+}
+
+.home-secondary-jumbo-meta h3,
+.home-secondary-jumbo-meta p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    margin-top: 0;
+    color: #fff;
+}
+
+.home-secondary-jumbo-meta p {
+    color: #fff;
+    font-size: 21px;
+    font-weight: 300;
+    letter-spacing: -0.5px;
+    line-height: 28px;
+    margin-bottom: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 700px;
+}
+
+.home-jumbo-meta p {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.home-jumbo-cta a {
+    margin: 0 auto;
+}
+
+.home-content {
+    padding: 53px 33px 57px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.home-content p {
+    color: rgba(0, 0, 0, 0.75);
+    font-size: 21px;
+    font-weight: 300;
+    letter-spacing: -0.5px;
+    line-height: 28px;
+    margin-bottom: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 700px;
+}
+
+.home-secondary-jumbo-wrapper {
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    background: #000;
+}
+
+.home-secondary-jumbo {
+    width: 100%;
+    overflow: hidden;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.5;
+}
+
+.home-secondary-jumbo span {
+    width: 100%;
+}
+
+.home-secondary-jumbo img {
+    min-height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: relative;
+    flex-shrink: 0;
+    right: 0;
+}
+
+.home-secondary-jumbo-cta a {
+    margin: 0;
+}
+
+.home-card-row a {
+    flex: 1 1;
+}
+
+@media screen and (max-width: 1024px) {
+    .home-content p {
+        font-size: 19px;
+        letter-spacing: -0.42px;
+        line-height: 25px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .home-jumbo {
+        height: 90vh;
+    }
+
+    .home-jumbo-meta {
+        top: 140px;
+    }
+
+    .home-secondary-jumbo-meta {
+        top: 90px;
+        margin: 20px;
+    }
+}
+
+@media screen and (max-width: 522px) {
+    .home-secondary-jumbo img {
+        right: 500px;
+    }
+}

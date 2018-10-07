@@ -1,0 +1,40 @@
+.song-card {
+    padding: 14px;
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+}
+
+.song-meta .artist {
+    font-size: 16px !important;
+}
+
+.song-meta p {
+    margin: 0 !important;
+}
+
+.song-play-btn {
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border-radius: 50%;
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.21) 0 3px 3px 0;
+}
+
+.song-play-btn svg *:first-child {
+    fill: #111;
+    transition: fill 0.2s ease-out;
+}
+
+.song-play-btn:hover svg *:first-child {
+    fill: #048ba8;
+}
+
+.enhanced-series-attachments {
+    display: flex;
+    flex-wrap: wrap;
+}

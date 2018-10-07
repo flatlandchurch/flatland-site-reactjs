@@ -1,0 +1,25 @@
+.not-found-wrapper {
+    overflow: hidden;
+    box-sizing: border-box;
+    position: relative;
+    padding: 120px 28px 100px;
+}
+
+.not-found-wrapper h1 {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    display: block;
+    width: 95%;
+}
+
+.not-found-wrapper h1::before {
+    content: "";
+    width: 14px;
+    height: 100%;
+    position: absolute;
+    background: #acc35c;
+    display: block;
+    left: -33px;
+}

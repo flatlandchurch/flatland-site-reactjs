@@ -1,0 +1,11 @@
+.podcast-card {
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+}
+
+.podcast-card h4,
+.podcast-card p {
+    color: #000;
+}

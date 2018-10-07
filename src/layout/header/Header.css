@@ -1,0 +1,23 @@
+.login-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2001;
+    background: #333;
+    color: #fff;
+    font-size: 12px;
+    padding: 8px 14px;
+    box-sizing: border-box;
+    height: 33px;
+    display: flex;
+    align-items: center;
+}
+
+.login-bar a {
+    color: #fff;
+    margin-left: 16px;
+}
+
+header {
+    top: 33px;
+}

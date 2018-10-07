@@ -1,0 +1,78 @@
+footer {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    margin: 0 auto;
+    background: #fff;
+    color: #333;
+    border-top: 2px solid #acc35c;
+}
+
+footer ul {
+    padding: 0;
+    margin: 0;
+}
+
+.footer-container {
+    font-size: 13px;
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 50px 60px;
+    flex-wrap: wrap;
+}
+
+.footer-container .link {
+    font-size: 13px;
+}
+
+.footer-container ul,
+.footer-container p {
+    margin-top: 8px;
+}
+
+.footer-container ul {
+    display: block;
+    text-align: center;
+}
+
+.footer-container ul li {
+    display: inline-block;
+    margin: 0 8px;
+}
+
+.social-link {
+    color: #333;
+}
+
+.social-link i {
+    margin-right: 8px;
+}
+
+@media screen and (max-width: 968px) {
+    .footer-container {
+        padding: 50px 1rem;
+    }
+
+    .footer-column {
+        width: 100%;
+    }
+
+    .footer-column p,
+    .footer-column ul {
+        margin-top: 12px;
+    }
+
+    .footer-column p {
+        text-align: center;
+    }
+
+    .footer-mobile-break {
+        display: block;
+    }
+
+    .footer-mobile-hide {
+        display: none;
+    }
+}
