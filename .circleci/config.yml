@@ -67,6 +67,7 @@ jobs:
       - run: cp -R server/ flatland-site-reactjs-public/
       - run: cp -R src/ flatland-site-reactjs-public/
       - run: cp package.json flatland-site-reactjs-public/
+      - run: cp yarn.lock flatland-site-reactjs-public/
       - run:
           command: git config user.email "mubatt@wyopub.com" && git config user.name "$CIRCLE_USERNAME" && git config push.default current
           working_directory: flatland-site-reactjs-public
