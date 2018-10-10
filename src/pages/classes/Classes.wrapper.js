@@ -39,7 +39,7 @@ export default connect(
   })((props) => {
     return (
       <ValidPage
-        checkKeys={['data', 'data.title', 'data.dates']}
+        checkKeys={['data', 'data.title', 'data.components.0']}
         props={props}
       >
         <Classes data={props.data} classes={_.sortBy(props.classes, ['order', 'title'])} />

@@ -33,7 +33,7 @@ export default connect(
   })((props) => {
     return (
       <ValidPage
-        checkKeys={['data', 'data.meta', 'data.title']}
+        checkKeys={['data', 'data.title', 'data.banner']}
         props={props}
       >
         <Class data={props.data} permalink={_.get(props, 'match.params.permalink')} />

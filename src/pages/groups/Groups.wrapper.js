@@ -38,7 +38,7 @@ export default connect(
   })((props) => {
     return (
       <ValidPage
-        checkKeys={['data', 'data.meta', 'data.title']}
+        checkKeys={['data', 'data.meta', 'data.title', 'data.components.0']}
         props={props}
       >
         <Groups data={props.data} groups={props.groups} />

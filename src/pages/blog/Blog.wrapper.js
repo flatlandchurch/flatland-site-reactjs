@@ -43,7 +43,7 @@ export default connect(
   })((props) => {
     return (
       <ValidPage
-        checkKeys={['data', 'data.title', 'posts.length']}
+        checkKeys={['data', 'data.title', 'posts.length', 'data.meta']}
         props={props}
       >
         <Blog
