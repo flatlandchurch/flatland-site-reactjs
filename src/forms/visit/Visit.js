@@ -92,7 +92,7 @@ export default class Visit extends React.Component {
 
     api.post('emails/visit', data)
       .then(() => {
-
+        this.setState({ formSent: true });
       });
   };
 
