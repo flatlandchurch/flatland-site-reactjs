@@ -164,17 +164,17 @@ export default class Visit extends React.Component {
                 inputs={[
                   {
                     id: 'this-sunday',
-                    label: `This Sunday (${getSundays(0).format('MMMM Do')})`,
+                    label: `This Sunday (${getSundays(1).format('MMMM Do')})`,
                     value: getSundays(0).unix(),
                   },
                   {
                     id: 'next-sunday',
-                    label: `Next Sunday (${getSundays(1).format('MMMM Do')})`,
+                    label: `Next Sunday (${getSundays(2).format('MMMM Do')})`,
                     value: getSundays(1).unix(),
                   },
                   {
                     id: 'next-next-sunday',
-                    label: `Next Next Sunday (${getSundays(2).format('MMMM Do')})`,
+                    label: `Next Next Sunday (${getSundays(3).format('MMMM Do')})`,
                     value: getSundays(2).unix(),
                   },
                 ]}
