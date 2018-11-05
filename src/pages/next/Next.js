@@ -2,9 +2,6 @@ import React from 'react';
 import {
   PageCard,
   Jumbotron,
-  PageNavigation,
-  ImageCard,
-  Button,
 } from '@flatland/chokhmah';
 import { Link } from 'react-router-dom';
 
