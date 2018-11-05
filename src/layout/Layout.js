@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import Header from './header';
 import Footer from './footer';
@@ -18,6 +18,7 @@ import Blog from '../pages/blog';
 import Post from '../pages/post';
 import Podcasts from '../pages/podcasts';
 import Podcast from '../pages/podcast';
+import Next from '../pages/next';
 import NotFound from '../pages/notFound';
 
 export default class Layout extends React.Component {
@@ -53,7 +54,9 @@ export default class Layout extends React.Component {
             <Route exact path="/podcasts" component={Podcasts} />
             <Route exact path="/radio" component={Podcasts} />
             <Route path="/podcasts/:permalink" component={Podcast} />
-            <Route path="/404" render={() => (<NotFound message="Hello world" />)} />
+            <Route exact path="/next" component={Next} />
+            <Route path="/404" render={() => (<NotFound />)} />
+            <Route path="/index.html" render={() => (<Redirect to="/" />)} />
             <Route
               exact
               path="/:permalink"
@@ -63,7 +66,7 @@ export default class Layout extends React.Component {
               path="/:permalink/:child"
               render={({ match }) => (<Page match={match} key={match.url} />)}
             />
-            <Route path="*" render={() => (<NotFound message="Hello world" />)} />
+            <Route path="*" render={() => (<NotFound />)} />
           </Switch>
         </div>
         <Footer/>
