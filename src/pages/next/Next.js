@@ -10,10 +10,6 @@ import Progress from '../../components/progress';
 import './Next.css';
 
 export default class Next extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="page-wrapper">
