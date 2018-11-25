@@ -20,6 +20,7 @@ import Podcasts from '../pages/podcasts';
 import Podcast from '../pages/podcast';
 import Next from '../pages/next';
 import NotFound from '../pages/notFound';
+import Outreach from '../pages/outreach';
 
 export default class Layout extends React.Component {
   render() {
@@ -54,6 +55,7 @@ export default class Layout extends React.Component {
             <Route exact path="/podcasts" component={Podcasts} />
             <Route exact path="/radio" component={Podcasts} />
             <Route path="/podcasts/:permalink" component={Podcast} />
+            <Route exact path="/outreach/:permalink" component={Outreach} />
             <Route exact path="/next" component={Next} />
             <Route path="/404" render={() => (<NotFound />)} />
             <Route path="/index.html" render={() => (<Redirect to="/" />)} />

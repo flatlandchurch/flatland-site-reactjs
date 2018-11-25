@@ -26,14 +26,20 @@ const Events = (props) => (
         {
           props.events.map((event) => (
             <div className="image-cards-card-wrapper" key={event.permalink}>
-              <Link to={`/enjoy/${event.permalink}`}>
+              <Link
+                to={
+                  event.type === 'outreach' ?
+                    `/outreach/${event.permalink}` :
+                    `/enjoy/${event.permalink}`
+                }
+              >
                 <ImageCard
                   title={event.title}
                   image={event.image}
                   alt={event.title}
                   tag={event.category.label}
                   tagColor={`#${event.category.color}`}
-                />
+                >{event.details && event.details.startDateDisplay}</ImageCard>
               </Link>
             </div>
           ))
