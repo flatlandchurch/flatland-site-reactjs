@@ -1,11 +1,11 @@
 {
   "name": "flatland-site-reactjs",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "private": true,
   "license": "MIT",
   "author": "Flatland Church",
   "dependencies": {
-    "@flatland/chokhmah": "^1.8.4",
+    "@flatland/chokhmah": "^1.9.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.4",
     "babel-plugin-dynamic-import-node": "^2.2.0",

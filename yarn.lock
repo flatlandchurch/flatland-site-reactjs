@@ -8,12 +8,13 @@
   dependencies:
     regenerator-runtime "^0.12.0"
 
-"@flatland/chokhmah@^1.8.4":
-  version "1.8.4"
-  resolved "https://registry.yarnpkg.com/@flatland/chokhmah/-/chokhmah-1.8.4.tgz#a2ef3b9b10f4ae1b3f33387f524e57f5563f27a8"
+"@flatland/chokhmah@^1.9.0":
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/@flatland/chokhmah/-/chokhmah-1.9.0.tgz#9c175142a893ee66f944e3b5c41390239fd14448"
   dependencies:
     classnames "^2.2.5"
     fast-average-color "^4.2.0"
+    lodash-es "^4.17.11"
     marked "^0.5.0"
     prop-types "^15.6.0"
     react "16.3.2"
@@ -4721,7 +4722,7 @@ locate-path@^2.0.0:
     p-locate "^2.0.0"
     path-exists "^3.0.0"
 
-lodash-es@^4.17.5:
+lodash-es@^4.17.11, lodash-es@^4.17.5:
   version "4.17.11"
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.11.tgz#145ab4a7ac5c5e52a3531fb4f310255a152b4be0"
 
