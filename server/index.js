@@ -23,17 +23,24 @@ register(ignoreStyles.DEFAULT_EXTENSIONS, (mod, filename) => {
     mod.exports = `/static/media/${bn}`;
   }
 });
-
+require("@babel/polyfill");
 // Set up babel to do its thing... env for the latest toys, react-app for CRA
 // Notice three plugins: the first two allow us to use import rather than require, the third is for code splitting
-require('babel-register')({
-  ignore: /\/(build|node_modules)\//,
-  presets: ['env', 'react-app'],
+require('@babel/register')({
+  ignore: [
+    /\/(build|node_modules)\//,
+  ],
+  presets: [
+    '@babel/preset-env',
+    '@babel/preset-react',
+  ],
   plugins: [
-    'syntax-dynamic-import',
     'dynamic-import-node',
-    'react-loadable/babel'
-  ]
+    '@babel/plugin-syntax-dynamic-import',
+    'react-loadable/babel',
+    '@babel/plugin-proposal-class-properties',
+  ],
+  babelrc: false,
 });
 
 // Now that the nonsense is over... load up the server entry point
