@@ -4,14 +4,17 @@ import {
   Jumbotron,
   PageNavigation,
   AttachmentCard,
+  Carousel,
 } from '@flatland/chokhmah';
 import uuid from 'uuid/v4'
 
 import StackGroup from '../../components/stackGroup';
 import ImageStackGroup from '../../components/imageStackGroup';
+import VideoStackGroup from '../../components/videoStackGroup';
 import Form from '../../components/form';
 import Location from '../../components/location';
 import Meta from '../../components/meta';
+import DynamicForm from '../../components/dynamicForm';
 
 const Page = (props) => (
   <div className="page-wrapper">
@@ -37,7 +40,7 @@ const Page = (props) => (
                     <StackGroup contents={component.contents} />
                 }
                 {
-                  component.type === 'image-stack' &&
+                  component.type === 'image-stack' && component.subType !== 'carousel' &&
                     <ImageStackGroup contents={component.contents} square={component.subType === 'square'} />
                 }
                 {
@@ -47,6 +50,18 @@ const Page = (props) => (
                 {
                   component.type === 'location' &&
                     <Location />
+                }
+                {
+                  component.type === 'video-stack' &&
+                    <VideoStackGroup contents={component.contents} />
+                }
+                {
+                  component.type === 'image-stack' && component.subType === 'carousel' &&
+                    <Carousel contents={component.contents} />
+                }
+                {
+                  component.type === 'dynamic-form' &&
+                    <DynamicForm formId={component.formId} />
                 }
               </div>
             )) :
