@@ -715,9 +715,9 @@
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
 
-"@flatland/chokhmah@^1.9.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@flatland/chokhmah/-/chokhmah-1.9.0.tgz#9c175142a893ee66f944e3b5c41390239fd14448"
+"@flatland/chokhmah@^1.9.1":
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/@flatland/chokhmah/-/chokhmah-1.9.1.tgz#a3388a50243456b39f9f5c70aed79dfa20c07ac6"
   dependencies:
     classnames "^2.2.5"
     fast-average-color "^4.2.0"
@@ -728,7 +728,7 @@
     react-aria-modal "^2.6.0"
     react-css-modules "^4.7.7"
     react-dates "^14.0.0"
-    react-dom "16.3.2"
+    react-dom "16.3.3"
     react-lazy-load-image-component "^1.1.2"
     react-router-dom "^4.3.1"
     uuid "^3.3.2"
@@ -7933,9 +7933,9 @@ react-displace@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/react-displace/-/react-displace-2.3.0.tgz#6915f8f2f279a29a7b58442405c26edc3d441429"
 
-react-dom@16.3.2:
-  version "16.3.2"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.3.2.tgz#cb90f107e09536d683d84ed5d4888e9640e0e4df"
+react-dom@16.3.3:
+  version "16.3.3"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.3.3.tgz#af4c2aef9f6a66251a46da50253c860a67ae66d9"
   dependencies:
     fbjs "^0.8.16"
     loose-envify "^1.1.0"

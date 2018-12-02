@@ -5,7 +5,7 @@
   "license": "MIT",
   "author": "Flatland Church",
   "dependencies": {
-    "@flatland/chokhmah": "^1.9.0",
+    "@flatland/chokhmah": "^1.9.1",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.4",
     "babel-plugin-dynamic-import-node": "^2.2.0",
