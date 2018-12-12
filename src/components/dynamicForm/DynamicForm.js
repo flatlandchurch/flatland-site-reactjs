@@ -11,19 +11,33 @@ import './DynamicForm.css';
 
 export default class DynamicForm extends React.Component {
   FIELDS = {
-    text: ({ label, name }) => (
+    text: ({ label, name, helpText, required }) => (
       <TextField
         label={label}
         onChange={this.handleChange(name)}
         value={this.state.data[name]}
+        helpText={helpText}
+        required={required}
       />
     ),
-    email: ({ label, name }) => (
+    email: ({ label, name, helpText, required }) => (
       <TextField
         label={label}
         type="email"
         onChange={this.handleChange(name)}
         value={this.state.data[name]}
+        helpText={helpText}
+        required={required}
+      />
+    ),
+    textarea: ({ label, name, helpText, required }) => (
+      <TextField
+        label={label}
+        textarea
+        onChange={this.handleChange(name)}
+        value={this.state.data[name]}
+        helpText={helpText}
+        required={required}
       />
     ),
     radio: ({ label, name, options }) => (

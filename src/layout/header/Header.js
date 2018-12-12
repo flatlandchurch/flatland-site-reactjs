@@ -1,10 +1,11 @@
 import React from 'react';
-import { Header, Menu, Icon, Search } from '@flatland/chokhmah';
+import { Header, Icon, Search } from '@flatland/chokhmah';
 import cx from 'classnames';
 
 import handleKeyDown from '../../utils/handleKeyDown';
 
 import api from '../../utils/api';
+import Menu from '../menu';
 import './Header.css';
 
 export default class AppHeader extends React.Component {
@@ -55,7 +56,7 @@ export default class AppHeader extends React.Component {
         <div className="login-bar">
           <div className="spacer" />
           {/*<Link to="/me/notes">My Notes</Link>*/}
-          <a href="https://flatlandchurch.infellowship.com/UserLogin">My Account</a>
+          <a href="http://flatland.churchcenter.com" target="_blank">My Account</a>
         </div>
         <Header
           logoUseLink
@@ -99,41 +100,47 @@ export default class AppHeader extends React.Component {
         />
         {
           this.state.menuOpen &&
-          <Menu
-            menuItems={{
-              _: [
-                { uri: '/watch', label: 'Messages' },
-                { uri: '/visit', label: 'Visit' },
-                { uri: '/enjoy', label: 'Events' },
-                { uri: '/give', label: 'Give' },
-              ],
-              about: [
-                { uri: '/visit', label: 'Location' },
-                { uri: '/visit/values', label: 'Values' },
-                { uri: '/visit/beliefs', label: 'Beliefs' },
-                { uri: '/visit/leadership', label: 'Leadership' },
-                { uri: '/move/classes/next-step', label: 'Next Steps' },
-              ],
-              connect: [
-                { uri: '/visit/kids', label: 'Kids' },
-                { uri: '/visit/students', label: 'Students' },
-                { uri: '/enjoy', label: 'Events' },
-                { uri: '/move/groups', label: 'Life Groups' },
-                { uri: '/move/classes', label: 'Core Classes' },
-                { uri: '/missions', label: 'Missions' },
-              ],
-              resources: [
-                { uri: '/watch', label: 'Messages' },
-                { uri: '/blog', label: 'Blog' },
-                { uri: '/move', label: 'Coaching' },
-                { uri: '/radio', label: 'Podcast' },
-                { uri: '/watch/series', label: 'Series Resources' },
-              ],
-            }}
-            fixed
-            onClick={this.toggleMenuState}
-          />
+            <Menu
+              onClose={this.toggleMenuState}
+            />
         }
+        {/*<Menu*/}
+        {/*menuItems={{*/}
+        {/*_: [*/}
+        {/*{ uri: '/watch', label: 'Messages' },*/}
+        {/*{ uri: '/visit', label: 'Visit' },*/}
+        {/*{ uri: '/enjoy', label: 'Events' },*/}
+        {/*{ uri: '/give', label: 'Give' },*/}
+        {/*],*/}
+        {/*'feel love': [*/}
+        {/*{ uri: '/move/classes/next-step', label: 'Next Steps' },*/}
+        {/*{ uri: '/enjoy', label: 'Events' },*/}
+        {/*{ uri: '/move/groups', label: 'Life Groups' },*/}
+        {/*{ uri: '/prayer', label: 'Prayer' },*/}
+        {/*],*/}
+        {/*'be transformed': [*/}
+        {/*{ uri: '/visit/kids', label: 'Kids' },*/}
+        {/*{ uri: '/visit/students', label: 'Students' },*/}
+        {/*{ uri: '/move/classes', label: 'Core Classes' },*/}
+        {/*{ uri: '/move', label: 'Coaching' },*/}
+        {/*],*/}
+        {/*about: [*/}
+        {/*{ uri: '/visit', label: 'Locations' },*/}
+        {/*{ uri: '/visit/values', label: 'Values' },*/}
+        {/*{ uri: '/visit/beliefs', label: 'Beliefs' },*/}
+        {/*{ uri: '/visit/leadership', label: 'Leadership' },*/}
+        {/*{ uri: '/missions', label: 'Missions' },*/}
+        {/*],*/}
+        {/*resources: [*/}
+        {/*{ uri: '/watch', label: 'Messages' },*/}
+        {/*{ uri: '/blog', label: 'Blog' },*/}
+        {/*{ uri: '/radio', label: 'Podcast' },*/}
+        {/*{ uri: '/watch/series', label: 'Series Resources' },*/}
+        {/*],*/}
+        {/*}}*/}
+        {/*fixed*/}
+        {/*onClick={this.toggleMenuState}*/}
+        {/*/>*/}
         {
           this.state.searchOpen &&
             <Search
