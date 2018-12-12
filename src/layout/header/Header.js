@@ -56,7 +56,13 @@ export default class AppHeader extends React.Component {
         <div className="login-bar">
           <div className="spacer" />
           {/*<Link to="/me/notes">My Notes</Link>*/}
-          <a href="http://flatland.churchcenter.com" target="_blank">My Account</a>
+          <a
+            href="http://flatland.churchcenter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            My Account
+          </a>
         </div>
         <Header
           logoUseLink
