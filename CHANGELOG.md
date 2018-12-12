@@ -22,6 +22,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ---
 
+## [3.2.0] 2018-12-12
+
+### Added
+
+* Added a textarea to the dynamic form
+
+### Changed
+
+* A brand new menu introduced with better navigation
+* Updated the login link to point to the churchcenter link
+
+---
+
 ## [3.1.0] 2018-12-02
 
 ### Added
