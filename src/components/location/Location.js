@@ -1,4 +1,7 @@
 import React from 'react';
+import { get } from 'lodash';
+
+import api from '../../utils/api';
 
 import './Location.css';
 
@@ -6,23 +9,22 @@ export default class Location extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      asterisk: false,
-      message: '',
+      location: {},
     };
   }
 
   componentDidMount() {
-    fetch('https://api.flatlandchurch.com/v1/times/changes')
-      .then((data) => data.json())
-      .then((data) => {
+    api.get('/locations/flatland-144')
+      .then(({ data }) => {
         this.setState({
-          asterisk: data.has_change,
-          message: data.message,
+          location: data.attributes,
         });
       });
   }
 
   render() {
+    const timeChange = get(this.state, 'location.timeChange.expires', 0) > new Date().getTime();
+
     return (
       <div className="location">
         <p>
@@ -34,14 +36,16 @@ export default class Location extends React.Component {
           <strong>
             Sunday, 9:30 &amp; 11:00
             {
-              this.state.asterisk &&
+              timeChange &&
                 '*'
             }
           </strong>
         </p>
         {
-          this.state.asterisk && this.state.message &&
-            <p style={{ fontSize: '14px' }}>* {this.state.message}</p>
+          timeChange &&
+            <div className="time-change">
+              * {get(this.state, 'location.timeChange.message')}
+            </div>
         }
       </div>
     );

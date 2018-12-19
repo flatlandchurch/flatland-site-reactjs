@@ -21,3 +21,60 @@
 header {
     top: 33px;
 }
+
+.notification-bar {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    z-index: 5000;
+    background: #acc35b;
+    display: block;
+    color: #fff;
+}
+
+.notification-bar p {
+    margin: 8px 0;
+    text-align: center;
+    font-size: 12px;
+}
+
+.notification-bar a {
+    color: #fff;
+    margin-left: 8px;
+    text-decoration: underline;
+}
+
+.notification-bar.notification {
+    background: #048ba8;
+}
+
+.notification-bar.alert {
+    background: #dd1c1a;
+}
+
+.notification-close {
+    width: 12px;
+    height: 12px;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.notification-close::before,
+.notification-close::after {
+    content: '';
+    width: 100%;
+    display: block;
+    height: 1px;
+    background: #fff;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 16px;
+}
+
+.notification-close::after {
+    transform: rotate(-45deg);
+}

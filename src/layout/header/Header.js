@@ -12,12 +12,29 @@ export default class AppHeader extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      redBar: {},
       menuOpen: false,
       searchOpen: false,
       searchValue: '',
       searchResults: [],
     };
   }
+
+  componentDidMount() {
+    api.get('redBar')
+      .then((data) => {
+        const notifDismissed = window.localStorage.getItem(`flatland:redBar:${data.guid}:dismissed`);
+        if (!notifDismissed) {
+          this.setState({ redBar: data });
+        }
+      });
+  }
+
+  closeNotification = () => {
+    const { guid } = this.state.redBar;
+    window.localStorage.setItem(`flatland:redBar:${guid}:dismissed`, true);
+    this.setState({ redBar: {} });
+  };
 
   toggleMenuState = () => {
     this.setState((prevState) => ({ menuOpen: !prevState.menuOpen }),
@@ -53,7 +70,24 @@ export default class AppHeader extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div className="login-bar">
+        {
+          Boolean(Object.keys(this.state.redBar).length) &&
+          <div className={cx('notification-bar', this.state.redBar.type)}>
+            <p>
+              {this.state.redBar.title}
+              <a href={this.state.redBar.action.uri}>
+                {this.state.redBar.action.label}
+              </a>
+            </p>
+            <div
+              className="notification-close"
+              role="button"
+              tabIndex={0}
+              onClick={this.closeNotification}
+            />
+          </div>
+        }
+        <div className={cx('login-bar', { notificationOpen: Boolean(Object.keys(this.state.redBar).length) })}>
           <div className="spacer" />
           {/*<Link to="/me/notes">My Notes</Link>*/}
           <a
