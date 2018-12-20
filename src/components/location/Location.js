@@ -1,5 +1,6 @@
 import React from 'react';
 import { get } from 'lodash';
+import { Stack } from '@flatland/chokhmah';
 
 import api from '../../utils/api';
 
@@ -32,21 +33,28 @@ export default class Location extends React.Component {
             Located on 144th Street between Maple and Fort
           </a>
         </p>
-        <p>
-          <strong>
-            Sunday, 9:30 &amp; 11:00
-            {
-              timeChange &&
-                '*'
-            }
-          </strong>
-        </p>
         {
           timeChange &&
-            <div className="time-change">
-              * {get(this.state, 'location.timeChange.message')}
-            </div>
+          <div className="time-change">
+            <img src={get(this.state, 'location.timeChange.image')} alt="time change announcement" />
+            <Stack
+              title={get(this.state, 'location.timeChange.title')}
+              content={get(this.state, 'location.timeChange.message')}
+            />
+          </div>
         }
+        <p>
+          {
+            timeChange &&
+            <React.Fragment>
+              <span>Regular Service Times:</span>
+              <br />
+            </React.Fragment>
+          }
+          <strong>
+            Sunday, 9:30 &amp; 11:00
+          </strong>
+        </p>
       </div>
     );
   }

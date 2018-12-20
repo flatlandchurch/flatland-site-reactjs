@@ -1,3 +1,32 @@
 .location {
     text-align: center;
 }
+
+.time-change {
+    max-width: 468px;
+    margin: 1rem auto;
+    box-shadow:
+            rgba(9, 30, 66, 0.08) 0 0 0 1px,
+            rgba(9, 30, 66, 0.08) 0 2px 1px,
+            rgba(9, 30, 66, 0.31) 0 0 20px -6px;
+    background: #fff;
+    box-sizing: border-box;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.time-change img {
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    height: 166px;
+    object-fit: cover;
+}
+
+.time-change p {
+    text-align: left;
+}
+
+.time-change .stack-item {
+    max-width: 95%;
+}
