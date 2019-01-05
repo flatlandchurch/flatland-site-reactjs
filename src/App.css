@@ -3,6 +3,10 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
+.jumbotron-container {
+    height: 723px;
+}
+
 .content-wrapper {
     min-height: 100vh;
 }
@@ -28,7 +32,7 @@ body {
 
 .page-wrapper {
     position: relative;
-    top: 72px;
+    top: 105px;
     padding-bottom: calc(72px + 4rem);
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -140,6 +144,10 @@ body {
 @media screen and (max-width: 767px) {
     .image-cards-card-body {
         display: block;
+    }
+
+    .jumbotron-container {
+        height: 567px;
     }
 }
 

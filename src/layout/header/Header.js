@@ -24,7 +24,7 @@ export default class AppHeader extends React.Component {
     api.get('redBar')
       .then((data) => {
         const notifDismissed = window.localStorage.getItem(`flatland:redBar:${data.guid}:dismissed`);
-        if (!notifDismissed) {
+        if (!notifDismissed && data.expires > new Date().getTime()) {
           this.setState({ redBar: data });
         }
       });
@@ -103,8 +103,9 @@ export default class AppHeader extends React.Component {
           navUseLink
           navItems={[
             { uri: '/watch', label: 'Messages' },
+            { uri: '/about', label: 'About' },
             { uri: '/visit', label: 'Visit' },
-            { uri: '/enjoy', label: 'Events' },
+            { uri: '/connect', label: 'Connect' },
             { uri: '/give', label: 'Give' },
           ]}
           rightButtons={[
@@ -144,43 +145,6 @@ export default class AppHeader extends React.Component {
               onClose={this.toggleMenuState}
             />
         }
-        {/*<Menu*/}
-        {/*menuItems={{*/}
-        {/*_: [*/}
-        {/*{ uri: '/watch', label: 'Messages' },*/}
-        {/*{ uri: '/visit', label: 'Visit' },*/}
-        {/*{ uri: '/enjoy', label: 'Events' },*/}
-        {/*{ uri: '/give', label: 'Give' },*/}
-        {/*],*/}
-        {/*'feel love': [*/}
-        {/*{ uri: '/move/classes/next-step', label: 'Next Steps' },*/}
-        {/*{ uri: '/enjoy', label: 'Events' },*/}
-        {/*{ uri: '/move/groups', label: 'Life Groups' },*/}
-        {/*{ uri: '/prayer', label: 'Prayer' },*/}
-        {/*],*/}
-        {/*'be transformed': [*/}
-        {/*{ uri: '/visit/kids', label: 'Kids' },*/}
-        {/*{ uri: '/visit/students', label: 'Students' },*/}
-        {/*{ uri: '/move/classes', label: 'Core Classes' },*/}
-        {/*{ uri: '/move', label: 'Coaching' },*/}
-        {/*],*/}
-        {/*about: [*/}
-        {/*{ uri: '/visit', label: 'Locations' },*/}
-        {/*{ uri: '/visit/values', label: 'Values' },*/}
-        {/*{ uri: '/visit/beliefs', label: 'Beliefs' },*/}
-        {/*{ uri: '/visit/leadership', label: 'Leadership' },*/}
-        {/*{ uri: '/missions', label: 'Missions' },*/}
-        {/*],*/}
-        {/*resources: [*/}
-        {/*{ uri: '/watch', label: 'Messages' },*/}
-        {/*{ uri: '/blog', label: 'Blog' },*/}
-        {/*{ uri: '/radio', label: 'Podcast' },*/}
-        {/*{ uri: '/watch/series', label: 'Series Resources' },*/}
-        {/*],*/}
-        {/*}}*/}
-        {/*fixed*/}
-        {/*onClick={this.toggleMenuState}*/}
-        {/*/>*/}
         {
           this.state.searchOpen &&
             <Search

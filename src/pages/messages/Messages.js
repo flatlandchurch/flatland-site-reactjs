@@ -18,7 +18,7 @@ const Messages = (props) => {
     {};
 
   return(
-    <React.Fragment>
+    <div className="page-wrapper">
       <Meta
         data={{
           title: props.sermons.length ? 'Watch weekly sermons' : 'Sermon series and resources',
@@ -96,7 +96,7 @@ const Messages = (props) => {
           </div>
         }
       </PageCard>
-    </React.Fragment>
+    </div>
   );
 };
 
