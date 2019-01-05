@@ -40,7 +40,8 @@ export default class Menu extends React.Component {
             <ul>
               <li><Link to="/" {...linkProps}>Home</Link></li>
               <li><Link to="/watch" {...linkProps}>Watch</Link></li>
-              <li><Link to="/visit" {...linkProps}>Visit</Link></li>
+              <li><Link to="/about" {...linkProps}>About</Link></li>
+              <li><Link to="/connect" {...linkProps}>Connect</Link></li>
               <li><Link to="/give" {...linkProps}>Give</Link></li>
               <li><Link to="/prayer" {...linkProps}>Prayer</Link></li>
             </ul>
@@ -90,6 +91,7 @@ export default class Menu extends React.Component {
           <div className="app-menu-section">
             <h3>About Us</h3>
             <ul>
+              <li><Link to="/about" {...linkProps}>About</Link></li>
               <li><Link to="/visit/leadership" {...linkProps}>Leadership</Link></li>
               <li><Link to="/visit/beliefs" {...linkProps}>Beliefs</Link></li>
               <li><Link to="/visit/values" {...linkProps}>Core Values</Link></li>
