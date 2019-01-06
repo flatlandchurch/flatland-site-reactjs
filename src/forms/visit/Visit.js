@@ -167,16 +167,15 @@ export default class Visit extends React.Component {
                     label: `This Sunday (${getSundays(1).format('MMMM Do')})`,
                     value: getSundays(1).unix(),
                   },
-                  // REVERT ON DECEMBER 23, 2018
                   {
                     id: 'next-sunday',
-                    label: `Christmas Eve (December 24th)`,
-                    value: moment(new Date(2018, 11, 24)).unix(),
+                    label: `Next Sunday (${getSundays(2).format('MMMM Do')})`,
+                    value: getSundays(2).unix(),
                   },
                   {
                     id: 'next-next-sunday',
-                    label: `Next Sunday (${getSundays(2).format('MMMM Do')})`,
-                    value: getSundays(2).unix(),
+                    label: `Following Sunday (${getSundays(3).format('MMMM Do')})`,
+                    value: getSundays(3).unix(),
                   },
                 ]}
                 onChange={this.handleServiceSelect}
