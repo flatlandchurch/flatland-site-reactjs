@@ -22,13 +22,6 @@ export function setGroupData(data) {
   };
 }
 
-export function setEventsData(data) {
-  return {
-    type: SET_EVENTS_DATA,
-    events: data,
-  };
-}
-
 export function setClassesData(data) {
   return {
     type: SET_CLASSES_DATA,
@@ -72,7 +65,6 @@ export function setPodcastData(data) {
 const initialState = {
   pageData: {},
   groups: [],
-  events: [],
   classes: [],
   posts: [],
   sermons: [],
@@ -90,10 +82,6 @@ export default function fetches(state = initialState, action) {
     case SET_GROUP_DATA:
       return Object.assign({}, state, {
         groups: action.groups,
-      });
-    case SET_EVENTS_DATA:
-      return Object.assign({}, state, {
-        events: action.events,
       });
     case SET_CLASSES_DATA:
       return Object.assign({}, state, {

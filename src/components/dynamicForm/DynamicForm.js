@@ -4,6 +4,8 @@ import {
   Button,
   Radio,
 } from '@flatland/chokhmah';
+import Select from 'react-select';
+import cx from 'classnames';
 
 import api from '../../utils/api';
 
@@ -54,6 +56,21 @@ export default class DynamicForm extends React.Component {
         selected={this.state.data[name]}
       />
     ),
+    select: ({ label, name, options, required }) => (
+      <div className="form-field">
+        <label
+          className={cx({ required })}
+        >
+          {label}
+        </label>
+        <Select
+          name={name}
+          options={options}
+          value={this.state.data[name]}
+          onChange={this.handleChange(name)}
+        />
+      </div>
+    ),
   };
 
   constructor(props) {
@@ -94,7 +111,21 @@ export default class DynamicForm extends React.Component {
     e.preventDefault();
     if (!this.state.sending) {
       this.setState({ sending: true });
-      api.post(`/forms/${this.props.formId}`, this.state.data)
+      const data = this.state.data;
+
+      // react-select saves its values with value and label
+      // so in the case where we have selects present
+      // we want to pull out the value to send in the request
+      const selectFields = this.state.fields.find((f) => f.type === 'select');
+      if (Array.isArray(selectFields)) {
+        selectFields.forEach((field) => {
+          data[field.name] = data[field.name].value;
+        });
+      } else {
+        data[selectFields.name] = data[selectFields.name].value;
+      }
+
+      api.post(`forms/${this.props.formId}`, data)
         .then(() => {
           this.setState({
             sending: false,
