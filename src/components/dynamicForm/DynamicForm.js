@@ -117,12 +117,14 @@ export default class DynamicForm extends React.Component {
       // so in the case where we have selects present
       // we want to pull out the value to send in the request
       const selectFields = this.state.fields.find((f) => f.type === 'select');
-      if (Array.isArray(selectFields)) {
-        selectFields.forEach((field) => {
-          data[field.name] = data[field.name].value;
-        });
-      } else {
-        data[selectFields.name] = data[selectFields.name].value;
+      if (selectFields) {
+				if (Array.isArray(selectFields)) {
+					selectFields.forEach((field) => {
+						data[field.name] = data[field.name].value;
+					});
+				} else {
+					data[selectFields.name] = data[selectFields.name].value;
+				}
       }
 
       api.post(`forms/${this.props.formId}`, data)
