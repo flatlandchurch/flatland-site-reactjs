@@ -4,25 +4,27 @@ import { frontloadConnect } from 'react-frontload';
 
 import api from '../../utils/api';
 import Page from './Page';
-import { setPageData } from '../../modules/fetches';
+import { setPageData } from '../../modules/pages';
 import ValidPage from '../../utils/ValidPage';
 
 const frontload = async (props) => {
   const { permalink, child } = props.match.params;
-  if (child)  {
-    return props.setPageData(await api.get(`pages/${permalink}/${child}`));
-  } else {
-    return props.setPageData(await api.get(`pages/${permalink}`));
-  }
+	const key = child ? `${permalink}/${child}` : permalink;
+
+	if (props.data) return;
+
+	return props.setPageData(key, await api.get(`pages/${key}`));
 };
 
-const mapStateToProps = (state) => ({
-  data: state.fetches.pageData,
-});
+const mapStateToProps = (state, props) => {
+	const { permalink, child } = props.match.params;
+	const key = child ? `${permalink}/${child}` : permalink;
+	return ({ data: state.pages[key] });
+};
 
 const mapDispatchToProps = (dispatch) => ({
-  setPageData: (data) => {
-    dispatch(setPageData(data));
+  setPageData: (key, data) => {
+    dispatch(setPageData(key, data));
   },
 });
 

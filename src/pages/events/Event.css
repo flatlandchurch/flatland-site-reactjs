@@ -1,0 +1,8 @@
+.event-footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.event-footer > *:last-child {
+  flex: 1 0 auto;
+}

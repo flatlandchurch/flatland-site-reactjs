@@ -5,7 +5,7 @@ import { frontloadConnect } from 'react-frontload';
 
 import Video from './Video';
 import api from '../../utils/api';
-import { setPageData } from '../../modules/fetches';
+import { setPageData } from '../../modules/pages';
 import ValidPage from '../../utils/ValidPage';
 
 const frontload = async (props) => {

@@ -4,20 +4,21 @@ import { frontloadConnect } from 'react-frontload';
 
 import api from '../../utils/api';
 import Home from './Home';
-import { setPageData } from '../../modules/fetches';
+import { setPageData } from '../../modules/pages';
 import ValidPage from '../../utils/ValidPage';
 
 const frontload = async (props) => {
-  return props.setPageData(await api.get('pages/home'));
+  if (props.data) return;
+  return props.setPageData('home', await api.get('pages/home'));
 };
 
 const mapStateToProps = (state) => ({
-  data: state.fetches.pageData,
+  data: state.pages['home'],
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setPageData: (data) => {
-    dispatch(setPageData(data));
+  setPageData: (key, data) => {
+    dispatch(setPageData(key, data));
   },
 });
 

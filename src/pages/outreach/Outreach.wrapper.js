@@ -5,7 +5,7 @@ import { frontloadConnect } from 'react-frontload';
 
 import api from '../../utils/api';
 import Outreach from './Outreach';
-import { setPageData } from '../../modules/fetches';
+import { setPageData } from '../../modules/pages';
 import ValidPage from '../../utils/ValidPage';
 
 const frontload = async (props) => {

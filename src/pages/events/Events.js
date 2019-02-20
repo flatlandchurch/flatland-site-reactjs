@@ -6,7 +6,11 @@ import {
   ImageCard,
 } from '@flatland/chokhmah';
 import { Link } from 'react-router-dom';
+import { sortBy } from 'lodash';
+
 import Meta from '../../components/meta';
+
+import './Event.css';
 
 const Events = (props) => (
   <div className="page-wrapper">
@@ -24,7 +28,7 @@ const Events = (props) => (
       }
       <div className="image-cards-card-body">
         {
-          props.events.map((event) => (
+					sortBy(props.events, 'startsAt').map((event) => (
             <div className="image-cards-card-wrapper" key={event.permalink}>
               <Link
                 to={
@@ -39,7 +43,12 @@ const Events = (props) => (
                   alt={event.title}
                   tag={event.category.label}
                   tagColor={`#${event.category.color}`}
-                >{event.details && event.details.startDateDisplay}</ImageCard>
+                >
+                  <div className="event-footer">
+                    <div className="spacer" />
+                    {event.details && event.details.startDateDisplay}
+                  </div>
+                </ImageCard>
               </Link>
             </div>
           ))

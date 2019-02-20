@@ -5,18 +5,19 @@ import _ from 'lodash';
 
 import api from '../../utils/api';
 import Classes from './Classes';
-import { setPageData, setClassesData } from '../../modules/fetches';
+import { setClassesData } from '../../modules/fetches';
+import { setPageData } from '../../modules/pages';
 import ValidPage from '../../utils/ValidPage';
 
 const frontload = async (props) => {
   return await Promise.all([
-    props.setPageData(await api.get('pages/move/classes')),
+    props.setPageData(await api.get('move/classes', 'pages/move/classes')),
     props.setClassesData(await api.get('classes')),
   ]);
 };
 
 const mapStateToProps = (state) => ({
-  data: state.fetches.pageData,
+  data: state.pages['move/classes'],
   classes: state.fetches.classes,
 });
 

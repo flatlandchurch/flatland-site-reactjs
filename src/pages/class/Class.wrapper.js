@@ -5,12 +5,13 @@ import { frontloadConnect } from 'react-frontload';
 
 import api from '../../utils/api';
 import Class from './Class';
-import { setPageData } from '../../modules/fetches';
+import { setPageData } from '../../modules/pages';
 import ValidPage from '../../utils/ValidPage';
 
 const frontload = async (props) => {
   const permalink = _.get(props, 'match.params.permalink');
-  return props.setPageData(await api.get(`classes/${permalink}`))
+  return;
+  // return props.setPageData(await api.get(`classes/${permalink}`))
 };
 
 const mapStateToProps = (state) => ({

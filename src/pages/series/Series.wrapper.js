@@ -5,14 +5,15 @@ import { frontloadConnect } from 'react-frontload';
 
 import api from '../../utils/api';
 import Series from './Series';
-import { setPageData } from '../../modules/fetches';
+import { setPageData } from '../../modules/pages';
 import ValidPage from '../../utils/ValidPage';
 
 const frontload = async (props) => {
   const permalink = _.get(props, 'match.params.permalink');
   const series = await api.get(`series/${permalink}`);
   const sermons = _.sortBy(series.sermons, ['preached']);
-  return props.setPageData(Object.assign({}, series, { sermons }));
+  return;
+  // return props.setPageData(Object.assign({}, series, { sermons }));
 };
 
 const mapStateToProps = (state) => ({

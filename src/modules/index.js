@@ -1,11 +1,15 @@
 import { combineReducers } from 'redux';
 
-import fetches from './fetches';
 import events from './events';
+import fetches from './fetches';
+import locations from './locations';
+import pages from './pages';
 
 const appReducer = combineReducers({
-  fetches,
-  events,
+	events,
+	fetches,
+	locations,
+	pages,
 });
 
 export default (state, action) => appReducer(state, action);

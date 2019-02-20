@@ -5,7 +5,8 @@ import { frontloadConnect } from 'react-frontload';
 import api from '../../utils/api';
 import Podcasts from './Podcasts';
 import ValidPage from '../../utils/ValidPage';
-import { setPageData, setPodcastData, resetPageData } from '../../modules/fetches';
+import { setPodcastData } from '../../modules/fetches';
+import { setPageData } from '../../modules/pages';
 
 const loadMore = (props) => async () => {
   const podcasts = await api.get('podcasts', { page: Math.floor(props.podcasts.length / 12) + 1 });
@@ -31,9 +32,6 @@ const mapDispatchToProps = (dispatch) => ({
   },
   setPodcastData: (data) => {
     dispatch(setPodcastData(data));
-  },
-  resetPageData: () => {
-    dispatch(resetPageData());
   },
 });
 

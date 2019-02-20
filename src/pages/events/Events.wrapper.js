@@ -4,7 +4,7 @@ import { frontloadConnect } from 'react-frontload';
 
 import api from '../../utils/api';
 import Events from './Events';
-import { setPageData } from '../../modules/fetches';
+import { setPageData } from '../../modules/pages';
 import { setEventsData } from '../../modules/events';
 import ValidPage from '../../utils/ValidPage';
 

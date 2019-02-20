@@ -4,18 +4,19 @@ import { frontloadConnect } from 'react-frontload';
 
 import api from '../../utils/api';
 import Groups from './Groups';
-import { setPageData, setGroupData } from '../../modules/fetches';
+import { setGroupData } from '../../modules/fetches';
+import { setPageData } from '../../modules/pages';
 import ValidPage from '../../utils/ValidPage';
 
 const frontload = async (props) => {
   return await Promise.all([
-    props.setPageData(await api.get('pages/move/groups')),
+    props.setPageData('move/groups', await api.get('pages/move/groups')),
     props.setGroupData(await api.get('groups/pco')),
   ]);
 };
 
 const mapStateToProps = (state) => ({
-  data: state.fetches.pageData,
+  data: state.pages['move/groups'],
   groups: state.fetches.groups,
 });
 

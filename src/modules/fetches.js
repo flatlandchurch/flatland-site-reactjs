@@ -1,19 +1,10 @@
-export const SET_PAGE_DATA = 'flatland/fetches/SET_PAGE_DATA';
 export const SET_GROUP_DATA = 'flatland/fetches/SET_GROUP_DATA';
-export const SET_EVENTS_DATA = 'flatland/fetches/SET_EVENTS_DATA';
 export const SET_CLASSES_DATA = 'flatland/fetches/SET_CLASSES_DATA';
 export const SET_BLOG_DATA = 'flatland/fetches/SET_BLOG_DATA';
 export const SET_SERMONS_DATA = 'flatland/fetches/SET_SERMONS_DATA';
 export const SET_SERIES_DATA = 'flatland/fetches/SET_SERIES_DATA';
 export const SET_PODCASTS_DATA = 'flatland/fetches/SET_PODCASTS_DATA';
 export const RESET_PAGE_DATA = 'flatland/fetches/RESET_PAGE_DATA';
-
-export function setPageData(data) {
-  return {
-    type: SET_PAGE_DATA,
-    data,
-  };
-}
 
 export function setGroupData(data) {
   return {
@@ -63,7 +54,6 @@ export function setPodcastData(data) {
 }
 
 const initialState = {
-  pageData: {},
   groups: [],
   classes: [],
   posts: [],
@@ -75,10 +65,6 @@ const initialState = {
 
 export default function fetches(state = initialState, action) {
   switch(action.type) {
-    case SET_PAGE_DATA:
-      return Object.assign({}, state, {
-        pageData: action.data,
-      });
     case SET_GROUP_DATA:
       return Object.assign({}, state, {
         groups: action.groups,
@@ -106,10 +92,6 @@ export default function fetches(state = initialState, action) {
     case SET_PODCASTS_DATA:
       return Object.assign({}, state, {
         podcasts: action.podcasts,
-      });
-    case RESET_PAGE_DATA:
-      return Object.assign({}, state, {
-        pageData: {},
       });
     default:
       return state;

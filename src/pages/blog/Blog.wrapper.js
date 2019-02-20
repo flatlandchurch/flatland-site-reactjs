@@ -4,7 +4,8 @@ import { frontloadConnect } from 'react-frontload';
 
 import api from '../../utils/api';
 import Blog from './Blog';
-import { setPageData, setBlogData } from '../../modules/fetches';
+import { setBlogData } from '../../modules/fetches';
+import { setPageData } from '../../modules/pages';
 import ValidPage from '../../utils/ValidPage';
 
 const loadMore = (props) => async () => {
