@@ -3,9 +3,44 @@
   "name": "Flatland Church",
   "icons": [
     {
-      "src": "/favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "https://firebasestorage.googleapis.com/v0/b/flatland-api.appspot.com/o/icons%2Ficon-48x48.png?alt=media&token=40e27aff-4383-4a14-9d75-88ab3771f79f",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "https://firebasestorage.googleapis.com/v0/b/flatland-api.appspot.com/o/icons%2Ficon-72x72.png?alt=media&token=cb6a093e-a74a-4cb3-8143-218e2f590266",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "https://firebasestorage.googleapis.com/v0/b/flatland-api.appspot.com/o/icons%2Ficon-96x96.png?alt=media&token=0465654f-8340-4f63-b258-57d4c32400f8",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "https://firebasestorage.googleapis.com/v0/b/flatland-api.appspot.com/o/icons%2Ficon-144x144.png?alt=media&token=45a75b95-8f81-4b13-b65b-c04f2f39c267",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "https://firebasestorage.googleapis.com/v0/b/flatland-api.appspot.com/o/icons%2Ficon-192x192.png?alt=media&token=d8f3e05b-6e58-4582-9ff7-2715426dd1de",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://firebasestorage.googleapis.com/v0/b/flatland-api.appspot.com/o/icons%2Ficon-256x256.png?alt=media&token=39653aff-e4c5-4162-a8b4-91951acdeff7",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "https://firebasestorage.googleapis.com/v0/b/flatland-api.appspot.com/o/icons%2Ficon-384x384.png?alt=media&token=d1c79028-193d-4bcd-ab0d-50a79afa8050",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "https://firebasestorage.googleapis.com/v0/b/flatland-api.appspot.com/o/icons%2Ficon-512x512.png?alt=media&token=5decc568-6e5a-4a33-8f38-9559610f3bb5",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ],
   "start_url": "/",

@@ -114,6 +114,7 @@ export default class Video extends React.Component {
             mozallowfullscreen="true"
             allowFullScreen
             title={this.props.data.title}
+            allow="autoplay"
           />
         </div>
         <div className={cx('video-page-card-wrapper', { playing: this.state.isPlaying })}>
