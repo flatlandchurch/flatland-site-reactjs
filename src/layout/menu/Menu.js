@@ -84,7 +84,6 @@ export default class Menu extends React.Component {
             <ul>
               <li><Link to="/blog" {...linkProps}>Blog</Link></li>
               <li><Link to="/move" {...linkProps}>Life Coaching</Link></li>
-              <li><Link to="/podcasts" {...linkProps}>Podcasts</Link></li>
               <li><Link to="/watch/series" {...linkProps}>Series Resources</Link></li>
             </ul>
           </div>

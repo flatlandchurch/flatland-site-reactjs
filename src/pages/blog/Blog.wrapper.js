@@ -4,7 +4,8 @@ import { frontloadConnect } from 'react-frontload';
 
 import api from '../../utils/api';
 import Blog from './Blog';
-import { setPageData, setBlogData } from '../../modules/fetches';
+import { setBlogData } from '../../modules/fetches';
+import { setPageData } from '../../modules/pages';
 import ValidPage from '../../utils/ValidPage';
 
 const loadMore = (props) => async () => {
@@ -13,20 +14,21 @@ const loadMore = (props) => async () => {
 };
 
 const frontload = async (props) => {
-  return await Promise.all([
-    props.setPageData(await api.get('pages/blog')),
-    props.setBlogData(await api.get('blog')),
-  ]);
+  if (!props.data) {
+		props.setPageData('blog', await api.get('pages/blog'));
+  }
+
+	props.setBlogData(await api.get('blog'));
 };
 
 const mapStateToProps = (state) => ({
-  data: state.fetches.pageData,
+  data: state.pages.blog,
   posts: state.fetches.posts,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setPageData: (data) => {
-    dispatch(setPageData(data));
+  setPageData: (key, data) => {
+    dispatch(setPageData(key, data));
   },
   setBlogData: (data) => {
     dispatch(setBlogData(data));

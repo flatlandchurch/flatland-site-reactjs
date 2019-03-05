@@ -5,7 +5,7 @@ import { frontloadConnect } from 'react-frontload';
 
 import api from '../../utils/api';
 import Podcast from './Podcast';
-import { resetPageData, setPageData } from '../../modules/fetches';
+import { setPageData } from '../../modules/pages';
 import ValidPage from '../../utils/ValidPage';
 
 const frontload = async (props) => {
@@ -21,9 +21,7 @@ const mapDispatchToProps = (dispatch) => ({
   setPageData: (data) => {
     dispatch(setPageData(data));
   },
-  resetPageData: () => {
-    dispatch(resetPageData());
-  },
+  resetPageData: () => {},
 });
 
 export default connect(

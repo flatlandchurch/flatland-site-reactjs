@@ -10,9 +10,7 @@ import ValidPage from '../../utils/ValidPage';
 
 const frontload = async (props) => {
   const permalink = _.get(props, 'match.params.permalink');
-  if (props.data) {
-    return;
-  }
+  if (props.data) return;
   return props.setEventData(await api.get(`events/${permalink}`))
 };
 

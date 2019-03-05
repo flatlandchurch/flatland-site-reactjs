@@ -1,35 +1,34 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { frontloadConnect } from 'react-frontload';
-import _ from 'lodash';
 
 import api from '../../utils/api';
-import Classes from './Classes';
-import { setClassesData } from '../../modules/classes';
+import Locations from './Locations';
 import { setPageData } from '../../modules/pages';
+import { setLocationData } from '../../modules/locations';
 import ValidPage from '../../utils/ValidPage';
 
 const frontload = async (props) => {
 	if (!props.data) {
-		props.setPageData(await api.get('pages/move/classes'));
+		props.setPageData('visit', await api.get(`pages/visit`));
 	}
 
-	if (!props.classes || !props.classes.length) {
-		props.setClassesData(await api.get('classes'));
+	if (!props.locations.length) {
+		props.setLocationData(await api.get(`locations`));
 	}
 };
 
 const mapStateToProps = (state) => ({
-  data: state.pages['move/classes'],
-  classes: state.classes,
+	data: state.pages.visit,
+	locations: state.locations,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-	setPageData: (data) => {
-		dispatch(setPageData('move/classes', data));
+	setPageData: (key, data) => {
+		dispatch(setPageData(key, data));
 	},
-	setClassesData: (data) => {
-		dispatch(setClassesData(data));
+	setLocationData: ({ data }) => {
+		dispatch(setLocationData(data));
 	},
 });
 
@@ -43,10 +42,14 @@ export default connect(
 	})((props) => {
 		return (
 			<ValidPage
-				checkKeys={['data', 'data.title', 'data.components.0']}
+				checkKeys={['data', 'data.components', 'data.meta.title']}
 				props={props}
 			>
-				<Classes data={props.data} classes={_.sortBy(props.classes, ['order', 'title'])} />
+				<Locations
+					{...props}
+					data={props.data}
+					locations={props.locations}
+				/>
 			</ValidPage>
 		);
 	})
