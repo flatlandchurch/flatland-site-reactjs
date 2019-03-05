@@ -10,7 +10,6 @@ import Meta from '../../components/meta';
 
 const Post = (props) => (
   <div className="page-wrapper">
-    { console.log(props.data) }
     <Meta
       data={{
         title: props.data.title,

@@ -139,3 +139,17 @@ p.time-day {
 .time-change .stack-item {
     max-width: 95%;
 }
+
+.location-preview {
+    width: 150px;
+    position: absolute;
+    z-index: 100;
+    background: #FF5D73;
+    transform: rotate(-45deg);
+    top: 30px;
+    left: -30px;
+    padding: 4px 0;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+}

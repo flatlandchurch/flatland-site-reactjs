@@ -21,8 +21,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setPageData: (data) => {
-    dispatch(setPageData(data));
+  setPageData: (key, data) => {
+    dispatch(setPageData(key, data));
   },
   setGroupData: (data) => {
     dispatch(setGroupData(data));

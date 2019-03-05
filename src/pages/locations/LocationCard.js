@@ -23,6 +23,12 @@ export default (props) => (
 		role="button"
 		tabIndex={0}
 	>
+		{
+			props.location.attributes.preview &&
+				<div className="location-preview">
+					Preview
+				</div>
+		}
 		<div className="location-image-container">
 			<img
 				src={props.location.attributes.image}

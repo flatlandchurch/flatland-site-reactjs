@@ -13,7 +13,7 @@ const frontload = async (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  data: state.pages['home'],
+  data: state.pages.home,
 });
 
 const mapDispatchToProps = (dispatch) => ({

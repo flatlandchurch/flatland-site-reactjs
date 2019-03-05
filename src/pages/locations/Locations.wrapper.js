@@ -9,17 +9,13 @@ import { setLocationData } from '../../modules/locations';
 import ValidPage from '../../utils/ValidPage';
 
 const frontload = async (props) => {
-	const promises = [];
-
 	if (!props.data) {
-		promises.push(props.setPageData('visit', await api.get(`pages/visit`)));
+		props.setPageData('visit', await api.get(`pages/visit`));
 	}
 
 	if (!props.locations.length) {
-		promises.push(props.setLocationData(await api.get(`locations`)));
+		props.setLocationData(await api.get(`locations`));
 	}
-
-	return Promise.all(promises);
 };
 
 const mapStateToProps = (state) => ({

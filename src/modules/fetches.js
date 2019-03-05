@@ -1,5 +1,4 @@
 export const SET_GROUP_DATA = 'flatland/fetches/SET_GROUP_DATA';
-export const SET_CLASSES_DATA = 'flatland/fetches/SET_CLASSES_DATA';
 export const SET_BLOG_DATA = 'flatland/fetches/SET_BLOG_DATA';
 export const SET_SERMONS_DATA = 'flatland/fetches/SET_SERMONS_DATA';
 export const SET_SERIES_DATA = 'flatland/fetches/SET_SERIES_DATA';
@@ -10,13 +9,6 @@ export function setGroupData(data) {
   return {
     type: SET_GROUP_DATA,
     groups: data,
-  };
-}
-
-export function setClassesData(data) {
-  return {
-    type: SET_CLASSES_DATA,
-    classes: data,
   };
 }
 
@@ -55,7 +47,6 @@ export function setPodcastData(data) {
 
 const initialState = {
   groups: [],
-  classes: [],
   posts: [],
   sermons: [],
   series: [],
@@ -68,10 +59,6 @@ export default function fetches(state = initialState, action) {
     case SET_GROUP_DATA:
       return Object.assign({}, state, {
         groups: action.groups,
-      });
-    case SET_CLASSES_DATA:
-      return Object.assign({}, state, {
-        classes: action.classes,
       });
     case SET_BLOG_DATA:
       return Object.assign({}, state, {

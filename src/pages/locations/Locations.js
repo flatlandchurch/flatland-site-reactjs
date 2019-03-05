@@ -32,7 +32,7 @@ export default class Locations extends React.Component {
 
 	handleLocationChange = (id) => () => {
 		this.setState({ selectedLocation: id });
-		history.push(`?location=${id}`);
+		history.push(`/visit?location=${id}`);
 	};
 
 	render() {
@@ -116,20 +116,29 @@ export default class Locations extends React.Component {
 									))
 								}
 							</div>
-							<Stack
-								title={get(selectedLocation, 'attributes.messageTitle', '')}
-								content={get(selectedLocation, 'attributes.message', '')}
-							/>
-							<Stack
-								title="More Questions?"
-								content={get(selectedLocation, 'attributes.faq', '')}
-							/>
-							<Form
-								form={{
-									title: 'Plan a Visit',
-									formName: 'visit',
-								}}
-							/>
+							{
+								get(selectedLocation, 'attributes.message') &&
+								<Stack
+									title={get(selectedLocation, 'attributes.messageTitle', '')}
+									content={get(selectedLocation, 'attributes.message', '')}
+								/>
+							}
+							{
+								get(selectedLocation, 'attributes.faq') &&
+								<Stack
+									title="More Questions?"
+									content={get(selectedLocation, 'attributes.faq', '')}
+								/>
+							}
+							{
+								!get(selectedLocation, 'attributes.private') &&
+								<Form
+									form={{
+										title: 'Plan a Visit',
+										formName: 'visit',
+									}}
+								/>
+							}
 						</div>
 					</PageCard>
 				</div>

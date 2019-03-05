@@ -9,20 +9,23 @@ import { setPageData } from '../../modules/pages';
 import ValidPage from '../../utils/ValidPage';
 
 const frontload = async (props) => {
+  if (props.data) return;
+
   const permalink = _.get(props, 'match.params.permalink');
   const series = await api.get(`series/${permalink}`);
+
   const sermons = _.sortBy(series.sermons, ['preached']);
-  return;
-  // return props.setPageData(Object.assign({}, series, { sermons }));
+
+	props.setPageData(`series/${permalink}`, Object.assign({}, series, { sermons }));
 };
 
-const mapStateToProps = (state) => ({
-  data: state.fetches.pageData,
+const mapStateToProps = (state, props) => ({
+  data: state.pages[`series/${_.get(props, 'match.params.permalink')}`],
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setPageData: (data) => {
-    dispatch(setPageData(data));
+  setPageData: (key, data) => {
+    dispatch(setPageData(key, data));
   },
 });
 

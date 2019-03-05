@@ -10,16 +10,16 @@ import ValidPage from '../../utils/ValidPage';
 
 const frontload = async (props) => {
   const permalink = _.get(props, 'match.params.permalink');
-  return props.setPageData(await api.get(`sermons/${permalink}`));
+  return props.setPageData(`sermons/${permalink}`, await api.get(`sermons/${permalink}`));
 };
 
-const mapStateToProps = (state) => ({
-  data: state.fetches.pageData,
+const mapStateToProps = (state, props) => ({
+  data: state.pages[`sermons/${_.get(props, 'match.params.permalink')}`],
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setPageData: (data) => {
-    dispatch(setPageData(data));
+  setPageData: (key, data) => {
+    dispatch(setPageData(key, data));
   },
 });
 

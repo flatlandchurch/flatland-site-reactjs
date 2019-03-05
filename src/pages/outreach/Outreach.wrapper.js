@@ -5,39 +5,41 @@ import { frontloadConnect } from 'react-frontload';
 
 import api from '../../utils/api';
 import Outreach from './Outreach';
-import { setPageData } from '../../modules/pages';
+import { setOutreachData } from '../../modules/outreach';
 import ValidPage from '../../utils/ValidPage';
 
 const frontload = async (props) => {
-  const permalink = _.get(props, 'match.params.permalink');
-  return props.setPageData(await api.get(`missions/${permalink}`))
+	if (props.data) return;
+	const permalink = _.get(props, 'match.params.permalink');
+	const { data } = await api.get(`missions/${permalink}`);
+	return props.setOutreachData(data);
 };
 
-const mapStateToProps = (state) => ({
-  data: state.fetches.pageData,
+const mapStateToProps = (state, props) => ({
+	data: state.outreach.find((e) => e.id === _.get(props, 'match.params.permalink')),
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setPageData: (data) => {
-    dispatch(setPageData(data));
-  },
+	setOutreachData: (data) => {
+		dispatch(setOutreachData(data));
+	},
 });
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
+	mapStateToProps,
+	mapDispatchToProps,
 )(
-  frontloadConnect(frontload, {
-    onMount: true,
-    onUpdate: false,
-  })((props) => {
-    return (
-      <ValidPage
-        checkKeys={['data.data', 'data.data.id', 'data.data.attributes']}
-        props={props}
-      >
-        <Outreach data={props.data.data} />
-      </ValidPage>
-    );
-  })
+	frontloadConnect(frontload, {
+		onMount: true,
+		onUpdate: false,
+	})((props) => {
+		return (
+			<ValidPage
+				checkKeys={['data', 'data.id', 'data.attributes']}
+				props={props}
+			>
+				<Outreach data={props.data} />
+			</ValidPage>
+		);
+	})
 );

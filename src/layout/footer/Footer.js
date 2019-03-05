@@ -30,7 +30,6 @@ export default () => (
           <li><Link data={{ internalUrl: '/move', label: 'Move' }} /></li>
           <li><Link data={{ internalUrl: '/give', label: 'Give' }} /></li>
           <li><Link data={{ internalUrl: '/blog', label: 'Blog' }} /></li>
-          <li><Link data={{ internalUrl: '/radio', label: 'Podcast' }} /></li>
         </ul>
         <ul>
           <li>
