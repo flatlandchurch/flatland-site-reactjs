@@ -4,6 +4,7 @@ import {
   Jumbotron,
   Stack,
   Action,
+  AttachmentCard,
 } from '@flatland/chokhmah';
 import Meta from '../../components/meta';
 
@@ -80,6 +81,24 @@ const Event = (props) => {
             props.data.inlineAction &&
             <Action data={props.data.inlineAction} black={false} />
           }
+					{
+						props.data.attachments && Boolean(props.data.attachments.length) &&
+						<React.Fragment>
+							<h3>Downloads</h3>
+							<div className="attachment-row">
+								{
+									props.data.attachments.map((download) => (
+										<AttachmentCard
+											label={download.title}
+											fileSize={download.fileSize}
+											fileUrl={download.externalUrl}
+											key={download.externalUrl}
+										/>
+									))
+								}
+							</div>
+						</React.Fragment>
+					}
         </div>
       </PageCard>
     </div>
