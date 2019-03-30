@@ -2,6 +2,7 @@ import React from 'react';
 import { TextField, Button, Radio } from '@flatland/chokhmah';
 import moment from 'moment';
 import { get } from 'lodash';
+import qs from 'qs';
 
 import '../Forms.css';
 
@@ -73,6 +74,8 @@ export default class Visit extends React.Component {
     e.preventDefault();
     const hasChildren = Boolean(Object.keys(this.state.children).length);
 
+    const { location } = qs.parse(window.location.search.replace('?', ''));
+
     const data = {
       hasChildren,
       firstName: this.state.firstName || '',
@@ -82,6 +85,7 @@ export default class Visit extends React.Component {
       children: [],
       date: this.state.date,
       spouseCount: this.state.spouseName ? 1 : 0,
+      campus: location || 'flatland-144',
     };
 
     if (hasChildren) {
