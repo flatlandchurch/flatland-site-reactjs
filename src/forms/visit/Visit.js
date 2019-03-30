@@ -31,7 +31,7 @@ export default class Visit extends React.Component {
       spouseName: '',
       selectedService: 'this-sunday',
       formSent: false,
-      date: getSundays(0).unix(),
+      date: getSundays(1).unix(),
     };
   }
 
@@ -108,12 +108,14 @@ export default class Visit extends React.Component {
                 onChange={this.handleFieldChange('firstName')}
                 onBlur={this.handleFieldChange('firstName')}
                 value={this.state.firstName}
+                required
               />
               <TextField
                 label="Last Name"
                 onChange={this.handleFieldChange('lastName')}
                 onBlur={this.handleFieldChange('lastName')}
                 value={this.state.lastName}
+                required
               />
               <TextField
                 label="Email"
@@ -122,6 +124,7 @@ export default class Visit extends React.Component {
                 onChange={this.handleFieldChange('email')}
                 onBlur={this.handleFieldChange('email')}
                 value={this.state.email}
+                required
               />
               {
                 this.state.spouseOpen ?
