@@ -14,7 +14,7 @@ const frontload = async (props) => {
   }
 
   // TODO: Add check to validate list
-  if (!props.events || !props.events.length) {
+  if (!props.events || !props.events.length || props.events.length === 1) {
 		props.setEventsData(await api.get('events'));
   }
 };

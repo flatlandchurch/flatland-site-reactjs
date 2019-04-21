@@ -21,6 +21,7 @@ import Podcast from '../pages/podcast';
 import Podcasts from '../pages/podcasts';
 import Post from '../pages/post';
 import Series from '../pages/series';
+import Today from '../pages/today';
 import Video from '../pages/video';
 
 export default class Layout extends React.Component {
@@ -59,6 +60,8 @@ export default class Layout extends React.Component {
 						<Route exact path="/outreach/:permalink" component={Outreach} />
 						<Route exact path="/next" component={Next} />
 						<Route exact path="/visit" component={Locations} />
+						<Route exact path="/today" component={Today} />
+						<Route exact path="/weeks/:week" component={Today} />
 						<Route path="/404" render={() => (<NotFound />)} />
 						<Route path="/index.html" render={() => (<Redirect to="/" />)} />
 						<Route
