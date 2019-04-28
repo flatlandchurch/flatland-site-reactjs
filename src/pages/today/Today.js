@@ -6,8 +6,7 @@ import { Stack } from '@flatland/chokhmah';
 import Tabs from '../../components/tabs';
 import Announcements from './Announcements';
 import Message from './Message';
-
-import today from './today.json';
+import api from '../../utils/api';
 
 export default class Today extends React.Component {
 	constructor(props) {
@@ -25,10 +24,12 @@ export default class Today extends React.Component {
 
 		this.state = {
 			activeTabId: tab || defaultTab,
+			today: {},
 		};
 	}
 
 	componentDidMount() {
+		this.getData();
 		if (!window.location.pathname.includes('weeks')) {
 			window.history.replaceState({}, '', `/weeks/${this.week}`)
 		}
@@ -38,10 +39,17 @@ export default class Today extends React.Component {
 		this.setState({ activeTabId });
 	};
 
+	getData = async () => {
+		const data = await api.get(`/weeks/${this.week}`);
+		this.setState({ today: data });
+	};
+
 	render() {
 		const title = new Date().getDay ?
 			`Week of ${moment().startOf('w').format('MMMM Do')}` :
 			moment().format('MMMM D');
+
+		const { today } = this.state;
 
 		return (
 			<div className="page-wrapper">
@@ -55,22 +63,33 @@ export default class Today extends React.Component {
 								{
 									label: 'Announcements',
 									id: 'announcements',
-									content: (<Announcements items={today.announcements}
-									/>)
+									content: (
+										this.state.today.announcements ?
+											<Announcements items={today.announcements} /> :
+											<div />
+									)
 								},
 								{
 									label: 'Message',
 									id: 'message',
-									content: (<Message
-										title={today.message.title}
-										content={today.message.content}
-										week={this.week}
-									/>)
+									content: (
+										this.state.today.message ?
+											<Message
+												title={today.message.title}
+												content={today.message.content}
+												week={this.week}
+											/> :
+											<div />
+									)
 								},
 								{
 									label: 'Weekly Challenge',
 									id: 'weekly-challenge',
-									content: (<Stack content={today.challenge.content} title="" />)
+									content: (
+										this.state.today.challenge ?
+											<Stack content={today.challenge.content} title="" /> :
+											<div />
+									)
 								},
 							]}
 							activeTabId={this.state.activeTabId}
