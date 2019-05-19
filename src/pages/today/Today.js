@@ -4,6 +4,7 @@ import qs from 'qs';
 import { Stack } from '@flatland/chokhmah';
 
 import Tabs from '../../components/tabs';
+import Meta from '../../components/meta';
 import Announcements from './Announcements';
 import Message from './Message';
 import api from '../../utils/api';
@@ -53,6 +54,13 @@ export default class Today extends React.Component {
 
 		return (
 			<div className="page-wrapper">
+				<Meta
+					data={{
+						title,
+						canonical: `https://flatlandchurch.com/weeks/${this.week}`,
+						description: `Follow along with the service, see what's new, take notes, and take the weekly Move to the Center challenge.`,
+					}}
+				/>
 				<div className="card-body">
 					<div style={{ maxWidth: '900px', margin: '0 auto' }}>
 						<h1 style={{ marginLeft: '2rem' }}>

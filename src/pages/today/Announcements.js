@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { Markdown } from '@flatland/chokhmah';
 
 const Card = styled.div`
 	box-shadow: 0 1px 4px 0 rgba(0,0,0,.25);
@@ -37,14 +38,14 @@ const Announcements = ({ items = [] }) => (
 					>
 						<Card>
 							<p><strong>{a.title}</strong></p>
-							<p>{a.description}</p>
+							<Markdown content={a.description }/>
 						</Card>
 					</Link> :
 					<Card
 						key={a.id}
 					>
 						<p><strong>{a.title}</strong></p>
-						<p>{a.description}</p>
+						<Markdown content={a.description }/>
 					</Card>
 			))
 		}
