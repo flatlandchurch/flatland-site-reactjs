@@ -85,6 +85,7 @@ export default class Today extends React.Component {
 											<Message
 												title={today.message.title}
 												content={today.message.content}
+												response={today.response}
 												week={this.week}
 											/> :
 											<div />

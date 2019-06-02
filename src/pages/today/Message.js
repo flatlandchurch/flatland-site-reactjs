@@ -2,6 +2,7 @@ import React from 'react';
 import { Markdown } from '@flatland/chokhmah';
 import styled from 'styled-components';
 
+import DynamicForm from '../../components/dynamicForm';
 import MessageNote from './MessageNote';
 
 const MessageWrapper = styled.div`
@@ -38,6 +39,7 @@ class Message extends React.Component {
 			content,
 			title,
 			week,
+			response,
 		} = this.props;
 
 		return (
@@ -52,6 +54,16 @@ class Message extends React.Component {
 							<MessageNote index={i} week={week} />
 						</React.Fragment>
 					))
+				}
+				{
+					response &&
+						<>
+							<h3>Respond</h3>
+							{
+								response.type === 'form' &&
+								<DynamicForm formId={response.formID} />
+							}
+						</>
 				}
 			</MessageWrapper>
 		);
