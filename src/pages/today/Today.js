@@ -2,6 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import qs from 'qs';
 import { Stack } from '@flatland/chokhmah';
+import { get } from 'lodash';
 
 import Tabs from '../../components/tabs';
 import Meta from '../../components/meta';
@@ -13,6 +14,10 @@ export default class Today extends React.Component {
 	constructor(props) {
 		super(props);
 
+		const { week: weekParam } = get(this.props, 'match.params', {});
+
+		console.log(weekParam);
+
 		const defaultTab = new Date().getDay() ? 'weekly-challenge' : 'announcements';
 
 		const { tab } = qs.parse(this.props.location.search.replace('?', ''));
@@ -21,7 +26,8 @@ export default class Today extends React.Component {
 		const week = now.week();
 		const year = now.year();
 
-		this.week = `${year}-${week}`;
+		this.week = weekParam || `${year}-${week}`;
+		this.title = `Week of ${moment().isoWeek(this.week.split('-')[1] - 1).startOf('w').format('MMMM Do')}`;
 
 		this.state = {
 			activeTabId: tab || defaultTab,
@@ -46,17 +52,13 @@ export default class Today extends React.Component {
 	};
 
 	render() {
-		const title = new Date().getDay ?
-			`Week of ${moment().startOf('w').format('MMMM Do')}` :
-			moment().format('MMMM D');
-
 		const { today } = this.state;
 
 		return (
 			<div className="page-wrapper">
 				<Meta
 					data={{
-						title,
+						title: this.title,
 						canonical: `https://flatlandchurch.com/weeks/${this.week}`,
 						description: `Follow along with the service, see what's new, take notes, and take the weekly Move to the Center challenge.`,
 					}}
@@ -64,7 +66,7 @@ export default class Today extends React.Component {
 				<div className="card-body">
 					<div style={{ maxWidth: '900px', margin: '0 auto' }}>
 						<h1 style={{ marginLeft: '2rem' }}>
-							{title}
+							{this.title}
 						</h1>
 						<Tabs
 							tabs={[

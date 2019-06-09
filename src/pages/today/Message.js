@@ -3,6 +3,7 @@ import { Markdown } from '@flatland/chokhmah';
 import styled from 'styled-components';
 
 import DynamicForm from '../../components/dynamicForm';
+import Response from '../../components/response';
 import MessageNote from './MessageNote';
 
 const MessageWrapper = styled.div`
@@ -62,6 +63,10 @@ class Message extends React.Component {
 							{
 								response.type === 'form' &&
 								<DynamicForm formId={response.formID} />
+							}
+							{
+								response.type === 'standard' &&
+									<Response options={response.options} />
 							}
 						</>
 				}
