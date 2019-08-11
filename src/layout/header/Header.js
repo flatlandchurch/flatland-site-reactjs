@@ -1,6 +1,5 @@
 import React from 'react';
 import { Header, Icon, Search } from '@flatland/chokhmah';
-import { Link } from 'react-router-dom';
 import cx from 'classnames';
 
 import handleKeyDown from '../../utils/handleKeyDown';
