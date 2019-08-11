@@ -1,6 +1,5 @@
 import React from 'react';
 import { Header, Icon, Search } from '@flatland/chokhmah';
-import { Link } from 'react-router-dom';
 import cx from 'classnames';
 
 import handleKeyDown from '../../utils/handleKeyDown';
@@ -91,13 +90,13 @@ export default class AppHeader extends React.Component {
 				<div className={cx('login-bar', { notificationOpen: Boolean(Object.keys(this.state.redBar).length) })}>
 					<div className="spacer" />
 					{/*<Link to="/me/notes">My Notes</Link>*/}
-					<Link to="/today">
+					<a href="https://today.flatlandchurch.com">
 						{
 							new Date().getDay() ?
 								'This Week' :
 								'Today'
 						}
-					</Link>
+					</a>
 					<a
 						href="http://flatland.churchcenter.com"
 						target="_blank"
