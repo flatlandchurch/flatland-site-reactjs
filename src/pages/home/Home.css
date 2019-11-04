@@ -20,6 +20,19 @@
     flex-shrink: 0;
 }
 
+.home-jumbo-video-container {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: #000;
+}
+
+.home-jumbo video {
+    height: 150%;
+    min-width: 100%;
+    opacity: 0.8;
+}
+
 .home-jumbo-meta {
     width: 100%;
     position: absolute;

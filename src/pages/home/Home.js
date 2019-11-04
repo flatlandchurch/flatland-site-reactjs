@@ -9,16 +9,16 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import './Home.css';
 
 import Meta from '../../components/meta';
+import Video from './Video';
 
 const Home = (props) => (
   <div className="home">
     <Meta data={props.data.meta} />
     <div className="home-jumbo-wrapper">
       <div className="home-jumbo">
-        <LazyLoadImage
-          alt={props.data.callout}
-          src={props.data.image}
-          effect="blur"
+        <Video
+          callout={props.data.callout}
+          image={props.data.image}
           scrollPosition={props.scrollPosition}
         />
       </div>
