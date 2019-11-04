@@ -18,6 +18,7 @@
     object-position: center;
     position: relative;
     flex-shrink: 0;
+    display: none;
 }
 
 .home-jumbo-video-container {
@@ -31,6 +32,16 @@
     height: 150%;
     min-width: 100%;
     opacity: 0.8;
+}
+
+@media screen and (max-width: 767px) {
+    .home-jumbo img {
+        display: block;
+    }
+
+    .home-jumbo video {
+        display: none;
+    }
 }
 
 .home-jumbo-meta {
