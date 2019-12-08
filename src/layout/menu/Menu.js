@@ -77,7 +77,7 @@ export default class Menu extends React.Component {
             {/*</ul>*/}
           {/*</div>*/}
           <div className="app-menu-section app-menu-slug">
-            <strong><Link to="/the-move" {...linkProps}>The Move</Link></strong>
+            <strong><a href="/the-move" {...linkProps}>The Move</a></strong>
           </div>
           <div className="app-menu-section">
             <h3>Go Deeper</h3>
