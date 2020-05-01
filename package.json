@@ -52,7 +52,8 @@
     "redux": "^4.0.0",
     "redux-thunk": "^2.3.0",
     "styled-components": "^4.2.0",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.2",
+    "snyk": "^1.316.1"
   },
   "scripts": {
     "start:client": "react-scripts start",
@@ -60,7 +61,9 @@
     "start": "NODE_ENV=production node server/index.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "devDependencies": {
     "nodemon": "^1.18.4",
@@ -77,5 +80,6 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "snyk": true
 }
