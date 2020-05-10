@@ -89,13 +89,8 @@ export default class AppHeader extends React.Component {
 				}
 				<div className={cx('login-bar', { notificationOpen: Boolean(Object.keys(this.state.redBar).length) })}>
 					<div className="spacer" />
-					{/*<Link to="/me/notes">My Notes</Link>*/}
-					<a href="https://today.flatlandchurch.com">
-						{
-							new Date().getDay() ?
-								'This Week' :
-								'Today'
-						}
+					<a href="https://today.flatland.church">
+						Today
 					</a>
 					<a
 						href="http://flatland.churchcenter.com"
