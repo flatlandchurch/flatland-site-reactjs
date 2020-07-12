@@ -24,6 +24,12 @@ export default (props) => (
           <Button context={props.active ? 'primary' : ''}>{props.label}</Button>
         </Link>
       }
+      {
+        props.externalUrl && props.label &&
+        <a href={props.externalUrl}>
+          <Button context={props.active ? 'primary' : ''}>{props.label}</Button>
+        </a>
+      }
     </div>
   </div>
 );

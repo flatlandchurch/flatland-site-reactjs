@@ -23,7 +23,7 @@ export default class Next extends React.Component {
               <Progress
                 title="Next Step Class"
                 content="The first step in your journey at Flatland Church is our Next Step class. You'll learn about our vision and values, our core beliefs, and how you can get involved."
-                internalUrl="/move/classes/next-step"
+                externalUrl="https://flatland.churchcenter.com/groups/core-classes/07-15-2020-next-step"
                 label="Sign Up"
                 active
               />
